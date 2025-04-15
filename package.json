@@ -1,0 +1,49 @@
+{
+  "name": "useDatagrid",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.23.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.5",
+    "vite-plugin-dts": "^4.5.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "default": "./dist/index.es.js"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "dependencies": {
+    "@mui/x-data-grid": "^7.28.3",
+    "@refinedev/core": "^4.57.9",
+    "@types/lodash": "^4.17.16",
+    "lodash": "^4.17.21",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
