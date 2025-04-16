@@ -25,7 +25,7 @@ npm install github:sanchezcarlosjr/useDataGrid
 ### Basic Usage
 
 ```tsx
-import { useDataGrid } from "src/hooks/useDataGrid";
+import { useDataGrid } from "@refinedev/mui-x-data-grid";
 import { DataGrid } from "@mui/x-data-grid";
 
 const PostsList = () => {
@@ -125,7 +125,7 @@ const PostsList = () => {
 ### With Schema
 
 ```tsx
-import { createSchemaHelper } from "src/hooks/useDataGrid";
+import { createSchemaHelper } from "@refinedev/mui-x-data-grid";
 
 // Create a schema helper for type safety
 const schema = createSchemaHelper<Post>();
@@ -171,7 +171,7 @@ When working with offline-first applications or when you need to assign IDs clie
 
 ```tsx
 import { v4 as uuidv4 } from 'uuid';
-import { createSchemaHelper } from "src/hooks/useDataGrid";
+import { createSchemaHelper } from "@refinedev/mui-x-data-grid";
 
 // Define your Post type
 interface Post {
@@ -247,7 +247,7 @@ const PostsManager = () => {
 When you prefer to let the database generate IDs for new records:
 
 ```tsx
-import { createSchemaHelper } from "src/hooks/useDataGrid";
+import { createSchemaHelper } from "@refinedev/mui-x-data-grid";
 
 interface Post {
   id: string;
