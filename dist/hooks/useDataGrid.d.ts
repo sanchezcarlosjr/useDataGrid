@@ -144,6 +144,7 @@ export type UseDataGridReturnType<TData extends BaseRecord = BaseRecord, TError 
     handleCancelClick: (id: GridRowId) => () => void;
     handleCellDoubleClick: (params: GridCellParams, event: MuiEvent<React.MouseEvent>) => void;
     isInEditMode: boolean;
+    hasSelected: boolean;
     schema?: ResourceSchema<TData>;
 };
 /**

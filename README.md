@@ -10,6 +10,7 @@ A powerful React hook that combines Refine data hooks with MUI X DataGrid, provi
 - Inline row editing and creation
 - Schema-based validation and transformations
 - Customizable lifecycle hooks for CRUD operations
+- Support React 19 and Material UI 7
 
 ## Installation
 
