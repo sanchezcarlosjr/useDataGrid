@@ -1,12 +1,12 @@
 import { useLiveMode as bs, useResourceParams as qs, useTable as Ss, pickNotDeprecated as pe, useUpdate as Ts, useCreate as Rs, useDeleteMany as Cs } from "@refinedev/core";
 import { useRef as bn, useState as Ne, useMemo as ue, useEffect as Ge, useCallback as F } from "react";
-import { GridLogicOperator as zt, GridRowModes as oe, GridRowEditStopReasons as As } from "@mui/x-data-grid";
-var ye = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
+import { GridLogicOperator as zt, GridRowModes as ye, GridRowEditStopReasons as As } from "@mui/x-data-grid";
+var be = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
 function Vt(e) {
   return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;
 }
 var Fe, qn;
-function Se() {
+function Te() {
   if (qn) return Fe;
   qn = 1;
   function e(r) {
@@ -19,7 +19,7 @@ var He, Sn;
 function Mi() {
   if (Sn) return He;
   Sn = 1;
-  var e = typeof ye == "object" && ye && ye.Object === Object && ye;
+  var e = typeof be == "object" && be && be.Object === Object && be;
   return He = e, He;
 }
 var Ke, Tn;
@@ -61,7 +61,7 @@ function Os() {
   return We = t, We;
 }
 var Be, wn;
-function Te() {
+function Re() {
   if (wn) return Be;
   wn = 1;
   var e = B(), r = e.Symbol;
@@ -71,7 +71,7 @@ var ze, In;
 function ms() {
   if (In) return ze;
   In = 1;
-  var e = Te(), r = Object.prototype, t = r.hasOwnProperty, n = r.toString, a = e ? e.toStringTag : void 0;
+  var e = Re(), r = Object.prototype, t = r.hasOwnProperty, n = r.toString, a = e ? e.toStringTag : void 0;
   function i(s) {
     var u = t.call(s, a), l = s[a];
     try {
@@ -95,17 +95,17 @@ function Es() {
   return Ve = t, Ve;
 }
 var $e, mn;
-function le() {
+function fe() {
   if (mn) return $e;
   mn = 1;
-  var e = Te(), r = ms(), t = Es(), n = "[object Null]", a = "[object Undefined]", i = e ? e.toStringTag : void 0;
+  var e = Re(), r = ms(), t = Es(), n = "[object Null]", a = "[object Undefined]", i = e ? e.toStringTag : void 0;
   function s(u) {
     return u == null ? u === void 0 ? a : n : i && i in Object(u) ? r(u) : t(u);
   }
   return $e = s, $e;
 }
 var Je, En;
-function te() {
+function re() {
   if (En) return Je;
   En = 1;
   function e(r) {
@@ -117,7 +117,7 @@ var Xe, Mn;
 function Ms() {
   if (Mn) return Xe;
   Mn = 1;
-  var e = le(), r = te(), t = "[object Symbol]";
+  var e = fe(), r = re(), t = "[object Symbol]";
   function n(a) {
     return typeof a == "symbol" || r(a) && e(a) == t;
   }
@@ -127,7 +127,7 @@ var Qe, jn;
 function js() {
   if (jn) return Qe;
   jn = 1;
-  var e = Os(), r = Se(), t = Ms(), n = NaN, a = /^[-+]0x[0-9a-f]+$/i, i = /^0b[01]+$/i, s = /^0o[0-7]+$/i, u = parseInt;
+  var e = Os(), r = Te(), t = Ms(), n = NaN, a = /^[-+]0x[0-9a-f]+$/i, i = /^0b[01]+$/i, s = /^0o[0-7]+$/i, u = parseInt;
   function l(o) {
     if (typeof o == "number")
       return o;
@@ -149,45 +149,45 @@ var Ye, Dn;
 function Ds() {
   if (Dn) return Ye;
   Dn = 1;
-  var e = Se(), r = ws(), t = js(), n = "Expected a function", a = Math.max, i = Math.min;
+  var e = Te(), r = ws(), t = js(), n = "Expected a function", a = Math.max, i = Math.min;
   function s(u, l, o) {
     var v, _, w, R, I, S, b = 0, C = !1, g = !1, M = !0;
     if (typeof u != "function")
       throw new TypeError(n);
     l = t(l) || 0, e(o) && (C = !!o.leading, g = "maxWait" in o, w = g ? a(t(o.maxWait) || 0, l) : w, M = "trailing" in o ? !!o.trailing : M);
-    function y(E) {
+    function y(m) {
       var k = v, f = _;
-      return v = _ = void 0, b = E, R = u.apply(f, k), R;
+      return v = _ = void 0, b = m, R = u.apply(f, k), R;
     }
-    function j(E) {
-      return b = E, I = setTimeout(D, l), C ? y(E) : R;
+    function j(m) {
+      return b = m, I = setTimeout(D, l), C ? y(m) : R;
     }
-    function A(E) {
-      var k = E - S, f = E - b, $ = l - k;
+    function A(m) {
+      var k = m - S, f = m - b, $ = l - k;
       return g ? i($, w - f) : $;
     }
-    function T(E) {
-      var k = E - S, f = E - b;
+    function T(m) {
+      var k = m - S, f = m - b;
       return S === void 0 || k >= l || k < 0 || g && f >= w;
     }
     function D() {
-      var E = r();
-      if (T(E))
-        return P(E);
-      I = setTimeout(D, A(E));
+      var m = r();
+      if (T(m))
+        return P(m);
+      I = setTimeout(D, A(m));
     }
-    function P(E) {
-      return I = void 0, M && v ? y(E) : (v = _ = void 0, R);
+    function P(m) {
+      return I = void 0, M && v ? y(m) : (v = _ = void 0, R);
     }
-    function N() {
+    function L() {
       I !== void 0 && clearTimeout(I), b = 0, v = S = _ = I = void 0;
     }
     function q() {
       return I === void 0 ? R : P(r());
     }
-    function G() {
-      var E = r(), k = T(E);
-      if (v = arguments, _ = this, S = E, k) {
+    function N() {
+      var m = r(), k = T(m);
+      if (v = arguments, _ = this, S = m, k) {
         if (I === void 0)
           return j(S);
         if (g)
@@ -195,7 +195,7 @@ function Ds() {
       }
       return I === void 0 && (I = setTimeout(D, l)), R;
     }
-    return G.cancel = N, G.flush = q, G;
+    return N.cancel = L, N.flush = q, N;
   }
   return Ye = s, Ye;
 }
@@ -205,7 +205,7 @@ var Ze, xn;
 function ji() {
   if (xn) return Ze;
   xn = 1;
-  var e = le(), r = Se(), t = "[object AsyncFunction]", n = "[object Function]", a = "[object GeneratorFunction]", i = "[object Proxy]";
+  var e = fe(), r = Te(), t = "[object AsyncFunction]", n = "[object Function]", a = "[object GeneratorFunction]", i = "[object Proxy]";
   function s(u) {
     if (!r(u))
       return !1;
@@ -258,7 +258,7 @@ var nr, Gn;
 function Gs() {
   if (Gn) return nr;
   Gn = 1;
-  var e = ji(), r = Ns(), t = Se(), n = Di(), a = /[\\^$.*+?()[\]{}|]/g, i = /^\[object .+?Constructor\]$/, s = Function.prototype, u = Object.prototype, l = s.toString, o = u.hasOwnProperty, v = RegExp(
+  var e = ji(), r = Ns(), t = Te(), n = Di(), a = /[\\^$.*+?()[\]{}|]/g, i = /^\[object .+?Constructor\]$/, s = Function.prototype, u = Object.prototype, l = s.toString, o = u.hasOwnProperty, v = RegExp(
     "^" + l.call(o).replace(a, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
   );
   function _(w) {
@@ -290,7 +290,7 @@ function Q() {
   return ir = t, ir;
 }
 var sr, Kn;
-function Re() {
+function Ce() {
   if (Kn) return sr;
   Kn = 1;
   var e = Q(), r = e(Object, "create");
@@ -300,7 +300,7 @@ var ur, kn;
 function Hs() {
   if (kn) return ur;
   kn = 1;
-  var e = Re();
+  var e = Ce();
   function r() {
     this.__data__ = e ? e(null) : {}, this.size = 0;
   }
@@ -320,7 +320,7 @@ var cr, Wn;
 function ks() {
   if (Wn) return cr;
   Wn = 1;
-  var e = Re(), r = "__lodash_hash_undefined__", t = Object.prototype, n = t.hasOwnProperty;
+  var e = Ce(), r = "__lodash_hash_undefined__", t = Object.prototype, n = t.hasOwnProperty;
   function a(i) {
     var s = this.__data__;
     if (e) {
@@ -335,7 +335,7 @@ var fr, Bn;
 function Us() {
   if (Bn) return fr;
   Bn = 1;
-  var e = Re(), r = Object.prototype, t = r.hasOwnProperty;
+  var e = Ce(), r = Object.prototype, t = r.hasOwnProperty;
   function n(a) {
     var i = this.__data__;
     return e ? i[a] !== void 0 : t.call(i, a);
@@ -346,7 +346,7 @@ var lr, zn;
 function Ws() {
   if (zn) return lr;
   zn = 1;
-  var e = Re(), r = "__lodash_hash_undefined__";
+  var e = Ce(), r = "__lodash_hash_undefined__";
   function t(n, a) {
     var i = this.__data__;
     return this.size += this.has(n) ? 0 : 1, i[n] = e && a === void 0 ? r : a, this;
@@ -386,7 +386,7 @@ function xi() {
   return _r = e, _r;
 }
 var hr, Xn;
-function Ce() {
+function Ae() {
   if (Xn) return hr;
   Xn = 1;
   var e = xi();
@@ -402,7 +402,7 @@ var gr, Qn;
 function Vs() {
   if (Qn) return gr;
   Qn = 1;
-  var e = Ce(), r = Array.prototype, t = r.splice;
+  var e = Ae(), r = Array.prototype, t = r.splice;
   function n(a) {
     var i = this.__data__, s = e(i, a);
     if (s < 0)
@@ -416,7 +416,7 @@ var pr, Yn;
 function $s() {
   if (Yn) return pr;
   Yn = 1;
-  var e = Ce();
+  var e = Ae();
   function r(t) {
     var n = this.__data__, a = e(n, t);
     return a < 0 ? void 0 : n[a][1];
@@ -427,7 +427,7 @@ var yr, Zn;
 function Js() {
   if (Zn) return yr;
   Zn = 1;
-  var e = Ce();
+  var e = Ae();
   function r(t) {
     return e(this.__data__, t) > -1;
   }
@@ -437,7 +437,7 @@ var br, ea;
 function Xs() {
   if (ea) return br;
   ea = 1;
-  var e = Ce();
+  var e = Ae();
   function r(t, n) {
     var a = this.__data__, i = e(a, t);
     return i < 0 ? (++this.size, a.push([t, n])) : a[i][1] = n, this;
@@ -445,7 +445,7 @@ function Xs() {
   return br = r, br;
 }
 var qr, ra;
-function Ae() {
+function we() {
   if (ra) return qr;
   ra = 1;
   var e = zs(), r = Vs(), t = $s(), n = Js(), a = Xs();
@@ -469,7 +469,7 @@ var Tr, na;
 function Qs() {
   if (na) return Tr;
   na = 1;
-  var e = Bs(), r = Ae(), t = $t();
+  var e = Bs(), r = we(), t = $t();
   function n() {
     this.size = 0, this.__data__ = {
       hash: new e(),
@@ -490,7 +490,7 @@ function Ys() {
   return Rr = e, Rr;
 }
 var Cr, ia;
-function we() {
+function Ie() {
   if (ia) return Cr;
   ia = 1;
   var e = Ys();
@@ -504,7 +504,7 @@ var Ar, sa;
 function Zs() {
   if (sa) return Ar;
   sa = 1;
-  var e = we();
+  var e = Ie();
   function r(t) {
     var n = e(this, t).delete(t);
     return this.size -= n ? 1 : 0, n;
@@ -515,7 +515,7 @@ var wr, ua;
 function eu() {
   if (ua) return wr;
   ua = 1;
-  var e = we();
+  var e = Ie();
   function r(t) {
     return e(this, t).get(t);
   }
@@ -525,7 +525,7 @@ var Ir, oa;
 function ru() {
   if (oa) return Ir;
   oa = 1;
-  var e = we();
+  var e = Ie();
   function r(t) {
     return e(this, t).has(t);
   }
@@ -535,7 +535,7 @@ var Or, ca;
 function tu() {
   if (ca) return Or;
   ca = 1;
-  var e = we();
+  var e = Ie();
   function r(t, n) {
     var a = e(this, t), i = a.size;
     return a.set(t, n), this.size += a.size == i ? 0 : 1, this;
@@ -723,7 +723,7 @@ var Wr, Aa;
 function vu() {
   if (Aa) return Wr;
   Aa = 1;
-  var e = le(), r = te(), t = "[object Arguments]";
+  var e = fe(), r = re(), t = "[object Arguments]";
   function n(a) {
     return r(a) && e(a) == t;
   }
@@ -733,7 +733,7 @@ var Br, wa;
 function Hi() {
   if (wa) return Br;
   wa = 1;
-  var e = vu(), r = te(), t = Object.prototype, n = t.hasOwnProperty, a = t.propertyIsEnumerable, i = e(/* @__PURE__ */ function() {
+  var e = vu(), r = re(), t = Object.prototype, n = t.hasOwnProperty, a = t.propertyIsEnumerable, i = e(/* @__PURE__ */ function() {
     return arguments;
   }()) ? e : function(s) {
     return r(s) && n.call(s, "callee") && !a.call(s, "callee");
@@ -741,7 +741,7 @@ function Hi() {
   return Br = i, Br;
 }
 var zr, Ia;
-function Ie() {
+function Oe() {
   if (Ia) return zr;
   Ia = 1;
   var e = Array.isArray;
@@ -751,7 +751,7 @@ var Vr, Oa;
 function _u() {
   if (Oa) return Vr;
   Oa = 1;
-  var e = Te(), r = Hi(), t = Ie(), n = e ? e.isConcatSpreadable : void 0;
+  var e = Re(), r = Hi(), t = Oe(), n = e ? e.isConcatSpreadable : void 0;
   function a(i) {
     return t(i) || r(i) || !!(n && i && i[n]);
   }
@@ -915,7 +915,7 @@ var st, Ka;
 function Cu() {
   if (Ka) return st;
   Ka = 1;
-  var e = Ui(), r = te();
+  var e = Ui(), r = re();
   function t(n) {
     return r(n) && e(n);
   }
@@ -947,7 +947,7 @@ var ct, Ba;
 function Ou() {
   if (Ba) return ct;
   Ba = 1;
-  var e = Ae();
+  var e = we();
   function r() {
     this.__data__ = new e(), this.size = 0;
   }
@@ -985,7 +985,7 @@ var vt, Ja;
 function ju() {
   if (Ja) return vt;
   Ja = 1;
-  var e = Ae(), r = $t(), t = Pi(), n = 200;
+  var e = we(), r = $t(), t = Pi(), n = 200;
   function a(i, s) {
     var u = this.__data__;
     if (u instanceof e) {
@@ -1002,7 +1002,7 @@ var _t, Xa;
 function Du() {
   if (Xa) return _t;
   Xa = 1;
-  var e = Ae(), r = Ou(), t = mu(), n = Eu(), a = Mu(), i = ju();
+  var e = we(), r = Ou(), t = mu(), n = Eu(), a = Mu(), i = ju();
   function s(u) {
     var l = this.__data__ = new e(u);
     this.size = l.size;
@@ -1096,8 +1096,8 @@ var qt, ti;
 function Gu() {
   if (ti) return qt;
   ti = 1;
-  var e = Te(), r = Pu(), t = xi(), n = Wi(), a = Lu(), i = Nu(), s = 1, u = 2, l = "[object Boolean]", o = "[object Date]", v = "[object Error]", _ = "[object Map]", w = "[object Number]", R = "[object RegExp]", I = "[object Set]", S = "[object String]", b = "[object Symbol]", C = "[object ArrayBuffer]", g = "[object DataView]", M = e ? e.prototype : void 0, y = M ? M.valueOf : void 0;
-  function j(A, T, D, P, N, q, G) {
+  var e = Re(), r = Pu(), t = xi(), n = Wi(), a = Lu(), i = Nu(), s = 1, u = 2, l = "[object Boolean]", o = "[object Date]", v = "[object Error]", _ = "[object Map]", w = "[object Number]", R = "[object RegExp]", I = "[object Set]", S = "[object String]", b = "[object Symbol]", C = "[object ArrayBuffer]", g = "[object DataView]", M = e ? e.prototype : void 0, y = M ? M.valueOf : void 0;
+  function j(A, T, D, P, L, q, N) {
     switch (D) {
       case g:
         if (A.byteLength != T.byteLength || A.byteOffset != T.byteOffset)
@@ -1115,17 +1115,17 @@ function Gu() {
       case S:
         return A == T + "";
       case _:
-        var E = a;
+        var m = a;
       case I:
         var k = P & s;
-        if (E || (E = i), A.size != T.size && !k)
+        if (m || (m = i), A.size != T.size && !k)
           return !1;
-        var f = G.get(A);
+        var f = N.get(A);
         if (f)
           return f == T;
-        P |= u, G.set(A, T);
-        var $ = n(E(A), E(T), P, N, q, G);
-        return G.delete(A), $;
+        P |= u, N.set(A, T);
+        var $ = n(m(A), m(T), P, L, q, N);
+        return N.delete(A), $;
       case b:
         if (y)
           return y.call(A) == y.call(T);
@@ -1138,7 +1138,7 @@ var St, ni;
 function Fu() {
   if (ni) return St;
   ni = 1;
-  var e = Fi(), r = Ie();
+  var e = Fi(), r = Oe();
   function t(n, a, i) {
     var s = a(n);
     return r(n) ? s : e(s, i(n));
@@ -1189,7 +1189,7 @@ function Uu() {
   }
   return At = e, At;
 }
-var ce = { exports: {} }, wt, oi;
+var oe = { exports: {} }, wt, oi;
 function Wu() {
   if (oi) return wt;
   oi = 1;
@@ -1198,13 +1198,13 @@ function Wu() {
   }
   return wt = e, wt;
 }
-ce.exports;
+oe.exports;
 var ci;
 function Bi() {
   return ci || (ci = 1, function(e, r) {
     var t = B(), n = Wu(), a = r && !r.nodeType && r, i = a && !0 && e && !e.nodeType && e, s = i && i.exports === a, u = s ? t.Buffer : void 0, l = u ? u.isBuffer : void 0, o = l || n;
     e.exports = o;
-  }(ce, ce.exports)), ce.exports;
+  }(oe, oe.exports)), oe.exports;
 }
 var It, fi;
 function Bu() {
@@ -1221,15 +1221,15 @@ var Ot, li;
 function zu() {
   if (li) return Ot;
   li = 1;
-  var e = le(), r = ki(), t = te(), n = "[object Arguments]", a = "[object Array]", i = "[object Boolean]", s = "[object Date]", u = "[object Error]", l = "[object Function]", o = "[object Map]", v = "[object Number]", _ = "[object Object]", w = "[object RegExp]", R = "[object Set]", I = "[object String]", S = "[object WeakMap]", b = "[object ArrayBuffer]", C = "[object DataView]", g = "[object Float32Array]", M = "[object Float64Array]", y = "[object Int8Array]", j = "[object Int16Array]", A = "[object Int32Array]", T = "[object Uint8Array]", D = "[object Uint8ClampedArray]", P = "[object Uint16Array]", N = "[object Uint32Array]", q = {};
-  q[g] = q[M] = q[y] = q[j] = q[A] = q[T] = q[D] = q[P] = q[N] = !0, q[n] = q[a] = q[b] = q[i] = q[C] = q[s] = q[u] = q[l] = q[o] = q[v] = q[_] = q[w] = q[R] = q[I] = q[S] = !1;
-  function G(E) {
-    return t(E) && r(E.length) && !!q[e(E)];
+  var e = fe(), r = ki(), t = re(), n = "[object Arguments]", a = "[object Array]", i = "[object Boolean]", s = "[object Date]", u = "[object Error]", l = "[object Function]", o = "[object Map]", v = "[object Number]", _ = "[object Object]", w = "[object RegExp]", R = "[object Set]", I = "[object String]", S = "[object WeakMap]", b = "[object ArrayBuffer]", C = "[object DataView]", g = "[object Float32Array]", M = "[object Float64Array]", y = "[object Int8Array]", j = "[object Int16Array]", A = "[object Int32Array]", T = "[object Uint8Array]", D = "[object Uint8ClampedArray]", P = "[object Uint16Array]", L = "[object Uint32Array]", q = {};
+  q[g] = q[M] = q[y] = q[j] = q[A] = q[T] = q[D] = q[P] = q[L] = !0, q[n] = q[a] = q[b] = q[i] = q[C] = q[s] = q[u] = q[l] = q[o] = q[v] = q[_] = q[w] = q[R] = q[I] = q[S] = !1;
+  function N(m) {
+    return t(m) && r(m.length) && !!q[e(m)];
   }
-  return Ot = G, Ot;
+  return Ot = N, Ot;
 }
-var fe = { exports: {} };
-fe.exports;
+var ce = { exports: {} };
+ce.exports;
 var di;
 function Vu() {
   return di || (di = 1, function(e, r) {
@@ -1241,7 +1241,7 @@ function Vu() {
       }
     }();
     e.exports = u;
-  }(fe, fe.exports)), fe.exports;
+  }(ce, ce.exports)), ce.exports;
 }
 var mt, vi;
 function zi() {
@@ -1254,7 +1254,7 @@ var Et, _i;
 function $u() {
   if (_i) return Et;
   _i = 1;
-  var e = Uu(), r = Hi(), t = Ie(), n = Bi(), a = Bu(), i = zi(), s = Object.prototype, u = s.hasOwnProperty;
+  var e = Uu(), r = Hi(), t = Oe(), n = Bi(), a = Bu(), i = zi(), s = Object.prototype, u = s.hasOwnProperty;
   function l(o, v) {
     var _ = t(o), w = !_ && r(o), R = !_ && !w && n(o), I = !_ && !w && !R && i(o), S = _ || w || R || I, b = S ? e(o.length, String) : [], C = b.length;
     for (var g in o)
@@ -1362,8 +1362,8 @@ function ro() {
       j || (j = C == "constructor");
     }
     if (y && !j) {
-      var P = i.constructor, N = s.constructor;
-      P != N && "constructor" in i && "constructor" in s && !(typeof P == "function" && P instanceof P && typeof N == "function" && N instanceof N) && (y = !1);
+      var P = i.constructor, L = s.constructor;
+      P != L && "constructor" in i && "constructor" in s && !(typeof P == "function" && P instanceof P && typeof L == "function" && L instanceof L) && (y = !1);
     }
     return v.delete(i), v.delete(s), y;
   }
@@ -1401,7 +1401,7 @@ var kt, wi;
 function so() {
   if (wi) return kt;
   wi = 1;
-  var e = to(), r = $t(), t = no(), n = ao(), a = io(), i = le(), s = Di(), u = "[object Map]", l = "[object Object]", o = "[object Promise]", v = "[object Set]", _ = "[object WeakMap]", w = "[object DataView]", R = s(e), I = s(r), S = s(t), b = s(n), C = s(a), g = i;
+  var e = to(), r = $t(), t = no(), n = ao(), a = io(), i = fe(), s = Di(), u = "[object Map]", l = "[object Object]", o = "[object Promise]", v = "[object Set]", _ = "[object WeakMap]", w = "[object DataView]", R = s(e), I = s(r), S = s(t), b = s(n), C = s(a), g = i;
   return (e && g(new e(new ArrayBuffer(1))) != w || r && g(new r()) != u || t && g(t.resolve()) != o || n && g(new n()) != v || a && g(new a()) != _) && (g = function(M) {
     var y = i(M), j = y == l ? M.constructor : void 0, A = j ? s(j) : "";
     if (A)
@@ -1424,11 +1424,11 @@ var Ut, Ii;
 function uo() {
   if (Ii) return Ut;
   Ii = 1;
-  var e = Du(), r = Wi(), t = Gu(), n = ro(), a = so(), i = Ie(), s = Bi(), u = zi(), l = 1, o = "[object Arguments]", v = "[object Array]", _ = "[object Object]", w = Object.prototype, R = w.hasOwnProperty;
+  var e = Du(), r = Wi(), t = Gu(), n = ro(), a = so(), i = Oe(), s = Bi(), u = zi(), l = 1, o = "[object Arguments]", v = "[object Array]", _ = "[object Object]", w = Object.prototype, R = w.hasOwnProperty;
   function I(S, b, C, g, M, y) {
     var j = i(S), A = i(b), T = j ? v : a(S), D = A ? v : a(b);
     T = T == o ? _ : T, D = D == o ? _ : D;
-    var P = T == _, N = D == _, q = T == D;
+    var P = T == _, L = D == _, q = T == D;
     if (q && s(S)) {
       if (!s(b))
         return !1;
@@ -1437,9 +1437,9 @@ function uo() {
     if (q && !P)
       return y || (y = new e()), j || u(S) ? r(S, b, C, g, M, y) : t(S, b, T, C, g, M, y);
     if (!(C & l)) {
-      var G = P && R.call(S, "__wrapped__"), E = N && R.call(b, "__wrapped__");
-      if (G || E) {
-        var k = G ? S.value() : S, f = E ? b.value() : b;
+      var N = P && R.call(S, "__wrapped__"), m = L && R.call(b, "__wrapped__");
+      if (N || m) {
+        var k = N ? S.value() : S, f = m ? b.value() : b;
         return y || (y = new e()), M(k, f, C, g, y);
       }
     }
@@ -1451,7 +1451,7 @@ var Wt, Oi;
 function oo() {
   if (Oi) return Wt;
   Oi = 1;
-  var e = uo(), r = te();
+  var e = uo(), r = re();
   function t(n, a, i, s, u) {
     return n === a ? !0 : n == null || a == null || !r(n) && !r(a) ? n !== n && a !== a : e(n, a, i, s, t, u);
   }
@@ -1468,7 +1468,7 @@ function co() {
   return Bt = r, Bt;
 }
 var fo = co();
-const be = /* @__PURE__ */ Vt(fo), lo = (e) => e.map(({ field: t, sort: n }) => ({
+const qe = /* @__PURE__ */ Vt(fo), lo = (e) => e.map(({ field: t, sort: n }) => ({
   field: t,
   order: n || "asc"
 })), vo = (e) => e.map(({ field: t, order: n }) => ({
@@ -1665,8 +1665,8 @@ function po(e, r) {
     return po(t, r);
   }
 }
-function qe(e) {
-  return e.flatMap((r) => "fields" in r ? qe(r.fields) : "accessorKey" in r || "accessorFn" in r ? [r] : []);
+function Se(e) {
+  return e.flatMap((r) => "fields" in r ? Se(r.fields) : "accessorKey" in r || "accessorFn" in r ? [r] : []);
 }
 function To({
   onSearch: e,
@@ -1695,18 +1695,18 @@ function To({
   overtimeOptions: T,
   editable: D = !1,
   selectable: P = !1,
-  rowSelection: N,
+  rowSelection: L,
   onRowSelectionChange: q,
-  enableRowSelection: G = !0,
-  updateMutationOptions: E,
+  enableRowSelection: N = !0,
+  updateMutationOptions: m,
   deleteMutationOptions: k,
   schema: f
 } = {}) {
-  const $ = bs(C), de = bn({}), { identifier: U } = qs({ resource: R }), {
+  const $ = bs(C), le = bn({}), { identifier: U } = qs({ resource: R }), {
     tableQueryResult: Jt,
-    tableQuery: Oe,
+    tableQuery: de,
     current: Xt,
-    setCurrent: ne,
+    setCurrent: te,
     pageSize: Qt,
     setPageSize: Yt,
     filters: Zt,
@@ -1742,10 +1742,10 @@ function To({
     metaData: pe(y, j),
     dataProviderName: A,
     overtimeOptions: T
-  }), [rn, Ee] = Ne(Zt), [H, J] = Ne(N || {}), [ae, Y] = Ne({}), Yi = bn(!0), Zi = ue(() => Object.values(ae).some((c) => c.mode === oe.Edit), [ae]);
+  }), [rn, Ee] = Ne(Zt), [H, J] = Ne(L || {}), [ne, ae] = Ne({}), Yi = bn(!0), Zi = ue(() => Object.values(ne).some((c) => c.mode === ye.Edit), [ne]);
   Ge(() => {
-    N && !be(N, H) && J(N);
-  }, [N]), Ge(() => {
+    L && !qe(L, H) && J(L);
+  }, [L]), Ge(() => {
     q && q(H);
   }, [H, q]);
   const { data: x, isFetched: tn, isLoading: nn } = Jt, K = ue(() => {
@@ -1766,19 +1766,19 @@ function To({
       console.error("Error in async row transformation:", h);
     });
   }, [x == null ? void 0 : x.data, f]);
-  const an = ((v == null ? void 0 : v.mode) || "server") === "server", sn = ((_ == null ? void 0 : _.mode) || "server") === "server", es = a === !1 ? "off" : "server", Z = ((n == null ? void 0 : n.mode) ?? es) !== "off", un = pe(_ == null ? void 0 : _.permanent, s) ?? [], on = pe(v == null ? void 0 : v.permanent, o) ?? [], rs = (c) => {
-    Z && ne(c + 1);
+  const an = ((v == null ? void 0 : v.mode) || "server") === "server", sn = ((_ == null ? void 0 : _.mode) || "server") === "server", es = a === !1 ? "off" : "server", Y = ((n == null ? void 0 : n.mode) ?? es) !== "off", un = pe(_ == null ? void 0 : _.permanent, s) ?? [], on = pe(v == null ? void 0 : v.permanent, o) ?? [], rs = (c) => {
+    Y && te(c + 1);
   }, ts = (c) => {
-    Z && Yt(c);
+    Y && Yt(c);
   }, cn = (c) => {
     const d = lo(c);
     en(d);
   }, ns = async (c) => {
     if (e) {
       const d = await e(c);
-      Ee(d), ve(d.filter((p) => p.value !== "")), Z && ne(1);
+      Ee(d), ve(d.filter((p) => p.value !== "")), Y && te(1);
     }
-  }, fn = () => Z ? {
+  }, fn = () => Y ? {
     paginationMode: "server",
     paginationModel: {
       page: Xt - 1,
@@ -1790,7 +1790,7 @@ function To({
   } : {
     paginationMode: "client"
   }, { mutate: as } = Ts({
-    mutationOptions: E
+    mutationOptions: m
   }), { mutate: Me } = Rs(), { mutate: je } = Cs({
     mutationOptions: k
   }), V = F((c) => {
@@ -1805,7 +1805,7 @@ function To({
       return String(c.id);
     }
     return String(c.id);
-  }, [f]), _e = F((c) => typeof G == "function" ? G(c) : G === !0, [G]), De = F(() => ({ rows: K.filter((d) => {
+  }, [f]), _e = F((c) => typeof N == "function" ? N(c) : N === !0, [N]), De = F(() => ({ rows: K.filter((d) => {
     const p = V(d);
     return H[p];
   }) }), [H, K, V]), xe = F(() => {
@@ -1827,83 +1827,83 @@ function To({
       const p = {};
       K.forEach((h) => {
         if (_e(h)) {
-          const O = V(h);
-          p[O] = !0;
+          const E = V(h);
+          p[E] = !0;
         }
       }), J(p);
     } else
       J({});
   }, [K, xe, _e, V]), us = F(() => Object.entries(H).filter(([c, d]) => d).map(([c]) => c), [H]), os = async (c) => {
-    var O;
+    var E;
     if (!f)
       return { isValid: !0, errors: {} };
     const d = {};
     let p = !0;
-    const h = qe(f.fields);
-    for (const m of h) {
-      const L = "accessorKey" in m ? c[m.accessorKey] : (O = m.accessorFn) == null ? void 0 : O.call(m, c);
-      if (m.required && (L == null || L === "")) {
-        const z = m.id || ("accessorKey" in m ? String(m.accessorKey) : "");
+    const h = Se(f.fields);
+    for (const O of h) {
+      const G = "accessorKey" in O ? c[O.accessorKey] : (E = O.accessorFn) == null ? void 0 : E.call(O, c);
+      if (O.required && (G == null || G === "")) {
+        const z = O.id || ("accessorKey" in O ? String(O.accessorKey) : "");
         d[z] = `${z} is required`, p = !1;
         continue;
       }
-      if (L !== void 0 && m.validate) {
-        const z = m.id || ("accessorKey" in m ? String(m.accessorKey) : ""), W = await Promise.resolve(m.validate(L));
+      if (G !== void 0 && O.validate) {
+        const z = O.id || ("accessorKey" in O ? String(O.accessorKey) : ""), W = await Promise.resolve(O.validate(G));
         W !== !0 && (d[z] = typeof W == "string" ? W : `${z} is invalid`, p = !1);
       }
     }
     return { isValid: p, errors: d };
   }, ln = async (c) => {
     if (!f) return c;
-    const d = { ...c }, p = qe(f.fields);
+    const d = { ...c }, p = Se(f.fields);
     for (const h of p) {
-      let O, m = !1;
+      let E, O = !1;
       if ("accessorKey" in h)
-        O = h.accessorKey, m = d[O] !== void 0;
+        E = h.accessorKey, O = d[E] !== void 0;
       else if ("accessorFn" in h && h.id)
-        O = h.id, m = d[O] !== void 0;
+        E = h.id, O = d[E] !== void 0;
       else
         continue;
-      if (!m && h.default !== void 0) {
-        const L = typeof h.default == "function" ? await Promise.resolve(h.default()) : h.default;
-        d[O] = L;
+      if (!O && h.default !== void 0) {
+        const G = typeof h.default == "function" ? await Promise.resolve(h.default()) : h.default;
+        d[E] = G;
       }
     }
     return d;
   }, cs = async (c) => {
     if (!f) return c;
-    const d = { ...c }, p = qe(f.fields);
+    const d = { ...c }, p = Se(f.fields);
     for (const h of p) {
       if (!h.transform) continue;
-      let O, m;
+      let E, O;
       if ("accessorKey" in h)
-        O = h.accessorKey, m = d[O];
+        E = h.accessorKey, O = d[E];
       else if ("accessorFn" in h && h.id)
-        O = h.id, m = h.accessorFn(d);
+        E = h.id, O = h.accessorFn(d);
       else
         continue;
-      if (m !== void 0) {
-        const L = await Promise.resolve(h.transform(m));
-        d[O] = L;
+      if (O !== void 0) {
+        const G = await Promise.resolve(h.transform(O));
+        d[E] = G;
       }
     }
     return d;
   }, dn = async (c, d) => {
-    var p, h, O, m;
+    var p, h, E, O;
     if (!D)
       return Promise.resolve(d);
     if (!U)
       return Promise.reject(new Error("Resource is not defined"));
     try {
-      const { isValid: L, errors: z } = await os(c);
-      if (!L)
+      const { isValid: G, errors: z } = await os(c);
+      if (!G)
         return Promise.reject({ validationErrors: z });
       const W = await cs(c);
       if (c._isTrasientInFrontend) {
-        const ee = { ...W };
-        delete ee._isTrasientInFrontend;
-        let ie = ee;
-        return (h = (p = f == null ? void 0 : f.operations) == null ? void 0 : p.create) != null && h.beforeCreate && (ie = await Promise.resolve(f.operations.create.beforeCreate(ee))), new Promise((he, re) => {
+        const Z = { ...W };
+        delete Z._isTrasientInFrontend;
+        let ie = Z;
+        return (h = (p = f == null ? void 0 : f.operations) == null ? void 0 : p.create) != null && h.beforeCreate && (ie = await Promise.resolve(f.operations.create.beforeCreate(Z))), new Promise((he, ee) => {
           Me(
             {
               resource: U,
@@ -1911,7 +1911,7 @@ function To({
             },
             {
               onError: (X) => {
-                re(X);
+                ee(X);
               },
               onSuccess: async (X) => {
                 var se, ge;
@@ -1925,32 +1925,32 @@ function To({
           );
         });
       } else {
-        let ee = W;
-        return (m = (O = f == null ? void 0 : f.operations) == null ? void 0 : O.update) != null && m.beforeUpdate && (ee = await Promise.resolve(f.operations.update.beforeUpdate(W, d))), new Promise((ie, he) => {
+        let Z = W;
+        return (O = (E = f == null ? void 0 : f.operations) == null ? void 0 : E.update) != null && O.beforeUpdate && (Z = await Promise.resolve(f.operations.update.beforeUpdate(W, d))), new Promise((ie, he) => {
           as(
             {
               resource: U,
               id: c.id,
-              values: ee
+              values: Z
             },
             {
-              onError: (re) => {
-                he(re);
+              onError: (ee) => {
+                he(ee);
               },
-              onSuccess: async (re) => {
+              onSuccess: async (ee) => {
                 var X, se;
                 if ((se = (X = f == null ? void 0 : f.operations) == null ? void 0 : X.update) != null && se.afterUpdate) {
-                  const ge = await Promise.resolve(f.operations.update.afterUpdate(re, d));
+                  const ge = await Promise.resolve(f.operations.update.afterUpdate(ee, d));
                   ie(ge);
                 } else
-                  ie(re.data);
+                  ie(ee.data);
               }
             }
           );
         });
       }
-    } catch (L) {
-      return console.error("Error updating row:", L), Promise.reject(L);
+    } catch (G) {
+      return console.error("Error updating row:", G), Promise.reject(G);
     }
   }, fs = async () => {
     var d, p;
@@ -1966,8 +1966,8 @@ function To({
           },
           {
             onSuccess: async () => {
-              var O, m;
-              (m = (O = f == null ? void 0 : f.operations) == null ? void 0 : O.delete) != null && m.afterDelete && await Promise.resolve(f.operations.delete.afterDelete(h)), J({});
+              var E, O;
+              (O = (E = f == null ? void 0 : f.operations) == null ? void 0 : E.delete) != null && O.afterDelete && await Promise.resolve(f.operations.delete.afterDelete(h)), J({});
             }
           }
         );
@@ -1977,72 +1977,67 @@ function To({
   }, Pe = (c, d) => {
     c.reason === As.rowFocusOut && (d.defaultMuiPrevented = !0);
   }, ls = F((c) => () => {
-    Y((d) => ({
+    ae((d) => ({
       ...d,
-      [c]: { mode: oe.Edit }
+      [c]: { mode: ye.Edit }
     }));
   }, []), ds = F((c) => () => {
-    Y((d) => ({
+    ae((d) => ({
       ...d,
-      [c]: { mode: oe.View }
+      [c]: { mode: ye.View }
     }));
   }, []), vs = F((c) => () => {
     if (!U) return;
     (async () => {
       var p, h;
       try {
-        let O = [String(c)];
-        if ((h = (p = f == null ? void 0 : f.operations) == null ? void 0 : p.delete) != null && h.beforeDelete && (O = await Promise.resolve(f.operations.delete.beforeDelete(O))), O.length === 0) return;
+        let E = [String(c)];
+        if ((h = (p = f == null ? void 0 : f.operations) == null ? void 0 : p.delete) != null && h.beforeDelete && (E = await Promise.resolve(f.operations.delete.beforeDelete(E))), E.length === 0) return;
         je(
           {
             resource: U,
-            ids: O
+            ids: E
           },
           {
             onSuccess: async () => {
-              var m, L;
-              (L = (m = f == null ? void 0 : f.operations) == null ? void 0 : m.delete) != null && L.afterDelete && await Promise.resolve(f.operations.delete.afterDelete(O)), H[String(c)] && J((z) => {
+              var O, G;
+              (G = (O = f == null ? void 0 : f.operations) == null ? void 0 : O.delete) != null && G.afterDelete && await Promise.resolve(f.operations.delete.afterDelete(E)), H[String(c)] && J((z) => {
                 const W = { ...z };
                 return delete W[String(c)], W;
               });
             }
           }
         );
-      } catch (O) {
-        console.error("Error deleting item:", O);
+      } catch (E) {
+        console.error("Error deleting item:", E);
       }
     })();
   }, [U, je, f, H]), _s = F((c) => () => {
-    Y((p) => ({
+    ae((p) => ({
       ...p,
-      [c]: { mode: oe.View, ignoreModifications: !0 }
+      [c]: { mode: ye.View, ignoreModifications: !0 }
     }));
     const d = K.find((p) => p.id === c);
-    d != null && d._isTrasientInFrontend && Oe.refetch();
-  }, [K, Oe]), hs = F(async () => {
+    d != null && d._isTrasientInFrontend && de.refetch();
+  }, [K, de]), hs = F(async () => {
     var c, d, p;
     try {
       let h = {};
       (d = (c = f == null ? void 0 : f.operations) == null ? void 0 : c.create) != null && d.defaults && (h = await Promise.resolve(f.operations.create.defaults())), f != null && f.fields && (h = await ln(h));
-      const O = ((p = f == null ? void 0 : f.getId) == null ? void 0 : p.call(f, h)) || `temp_${Date.now()}`, m = String(O);
+      const E = (h == null ? void 0 : h.id) ?? ((p = f == null ? void 0 : f.getId) == null ? void 0 : p.call(f, h));
       Me(
         {
           resource: U ?? "",
           values: {
             ...h,
-            id: O
+            id: E
           }
         },
         {
-          onError: (L) => {
-            console.error("Error creating new row:", L);
+          onError: (O) => {
+            console.error("Error creating new row:", O);
           },
-          onSuccess: () => {
-            Y((L) => ({
-              ...L,
-              [m]: { mode: oe.Edit, fieldToFocus: "name" }
-            }));
-          }
+          onSuccess: () => de.refetch()
         }
       );
     } catch (h) {
@@ -2055,22 +2050,22 @@ function To({
     }), J(d);
   }, []), hn = F((c) => {
     const d = Object.fromEntries(
-      Object.entries(c.columns.lookup).map(([h, O]) => [h, O.type])
+      Object.entries(c.columns.lookup).map(([h, E]) => [h, E.type])
     );
-    !be(d, de.current) && (de.current = d);
+    !qe(d, le.current) && (le.current = d);
   }, []), Le = F((c, d) => {
     Yi.current = !1, d.defaultMuiPrevented = !1;
   }, []), gn = (v == null ? void 0 : v.debounceDelay) ?? 500, pn = ue(
     () => Ps(
       (c) => {
         const d = ho(c);
-        Ee(d), ve(d.filter((p) => p.value !== "")), Z && ne(1);
+        Ee(d), ve(d.filter((p) => p.value !== "")), Y && te(1);
       },
       gn
     ),
-    [Ee, ve, Z, ne, gn]
+    [Ee, ve, Y, te, gn]
   ), yn = F((c) => {
-    Y(c);
+    ae(c);
   }, []), gs = ue(() => De().rows.length > 0, [De]), ps = ue(() => ({
     disableRowSelectionOnClick: !P,
     rows: K,
@@ -2079,13 +2074,13 @@ function To({
     ...fn(),
     sortingMode: sn ? "server" : "client",
     sortModel: vo(
-      Wa(me, un, be)
+      Wa(me, un, qe)
     ),
     onSortModelChange: cn,
     filterMode: an ? "server" : "client",
     filterModel: go(
-      Wa(rn, on, be),
-      de.current
+      Wa(rn, on, qe),
+      le.current
     ),
     onFilterModelChange: pn,
     onStateChange: hn,
@@ -2095,7 +2090,7 @@ function To({
     onRowSelectionModelChange: _n,
     onCellDoubleClick: Le,
     editMode: "row",
-    rowModesModel: ae,
+    rowModesModel: ne,
     onRowModesModelChange: yn,
     onRowEditStop: Pe
   }), [
@@ -2113,7 +2108,7 @@ function To({
     an,
     rn,
     on,
-    de.current,
+    le.current,
     pn,
     hn,
     D,
@@ -2121,16 +2116,16 @@ function To({
     vn,
     _n,
     Le,
-    ae,
+    ne,
     yn,
     Pe
   ]);
   return {
     tableQueryResult: Jt,
-    tableQuery: Oe,
+    tableQuery: de,
     dataGridProps: ps,
     current: Xt,
-    setCurrent: ne,
+    setCurrent: te,
     pageSize: Qt,
     setPageSize: Yt,
     pageCount: Ji,
@@ -2150,8 +2145,8 @@ function To({
     getIsSomeRowsSelected: is,
     toggleAllRowsSelected: ss,
     deleteSelectedItems: fs,
-    rowModesModel: ae,
-    setRowModesModel: Y,
+    rowModesModel: ne,
+    setRowModesModel: ae,
     addNewRow: hs,
     handleRowEditStop: Pe,
     handleEditClick: ls,
@@ -2166,7 +2161,7 @@ function To({
 }
 export {
   So as createSchemaHelper,
-  qe as getAllAccessorFields,
+  Se as getAllAccessorFields,
   po as getFieldValue,
   To as useDataGrid
 };

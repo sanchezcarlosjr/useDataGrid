@@ -987,7 +987,6 @@ export function useDataGrid<
 
       // Use existing ID if provided in defaults, otherwise generate a temp ID
       const rowId = newRowData?.id ?? schema?.getId?.(newRowData);
-      const rowIdString = String(rowId);
 
       // Instead of directly setting rows, create the new row in the backend
       // or at least update the cache of the query
@@ -1003,7 +1002,7 @@ export function useDataGrid<
           onError: (error) => {
             console.error("Error creating new row:", error);
           },
-          onSuccess: (values: TData) => {
+          onSuccess: () => {
             return tableQuery.refetch();
           }
         }
