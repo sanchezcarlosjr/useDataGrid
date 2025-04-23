@@ -986,7 +986,7 @@ export function useDataGrid<
       }
 
       // Use existing ID if provided in defaults, otherwise generate a temp ID
-      const rowId = schema?.getId?.(newRowData) || `temp_${Date.now()}`;
+      const rowId = newRowData?.id ?? schema?.getId?.(newRowData);
       const rowIdString = String(rowId);
 
       // Instead of directly setting rows, create the new row in the backend
@@ -1003,13 +1003,9 @@ export function useDataGrid<
           onError: (error) => {
             console.error("Error creating new row:", error);
           },
-          onSuccess: () => {
-            // Set the row to edit mode after creation
-            setRowModesModel((prevModel) => ({
-              ...prevModel,
-              [rowIdString]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
-            }));
-          },
+          onSuccess: (values: TData) => {
+            return tableQuery.refetch();
+          }
         }
       );
     } catch (error) {
