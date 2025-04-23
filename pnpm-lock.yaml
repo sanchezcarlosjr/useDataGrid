@@ -16,7 +16,7 @@ importers:
         version: 4.57.9(@tanstack/react-query@4.36.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@refinedev/mui-x-data-grid':
         specifier: github:sanchezcarlosjr/useDataGrid
-        version: https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/e09924fd946cb826c5718f9322f1cc9c08209d6c(@mui/material@7.0.2(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@mui/system@7.0.2(@types/react@19.1.2)(react@19.1.0))(@tanstack/react-query@4.36.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(vite@6.2.6)
+        version: https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/7020a677669d1332d7e479adfe73e4b441da82da(@mui/material@7.0.2(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@mui/system@7.0.2(@types/react@19.1.2)(react@19.1.0))(@tanstack/react-query@4.36.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(vite@6.2.6)
       '@types/lodash':
         specifier: ^4.17.16
         version: 4.17.16
@@ -567,8 +567,8 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
 
-  '@refinedev/mui-x-data-grid@https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/e09924fd946cb826c5718f9322f1cc9c08209d6c':
-    resolution: {tarball: https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/e09924fd946cb826c5718f9322f1cc9c08209d6c}
+  '@refinedev/mui-x-data-grid@https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/7020a677669d1332d7e479adfe73e4b441da82da':
+    resolution: {tarball: https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/7020a677669d1332d7e479adfe73e4b441da82da}
     version: 1.0.0
 
   '@rollup/pluginutils@5.1.4':
@@ -2182,7 +2182,7 @@ snapshots:
     transitivePeerDependencies:
       - react-native
 
-  '@refinedev/mui-x-data-grid@https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/e09924fd946cb826c5718f9322f1cc9c08209d6c(@mui/material@7.0.2(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@mui/system@7.0.2(@types/react@19.1.2)(react@19.1.0))(@tanstack/react-query@4.36.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(vite@6.2.6)':
+  '@refinedev/mui-x-data-grid@https://codeload.github.com/sanchezcarlosjr/useDataGrid/tar.gz/7020a677669d1332d7e479adfe73e4b441da82da(@mui/material@7.0.2(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@mui/system@7.0.2(@types/react@19.1.2)(react@19.1.0))(@tanstack/react-query@4.36.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(vite@6.2.6)':
     dependencies:
       '@mui/x-data-grid': 7.28.3(@mui/material@7.0.2(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@mui/system@7.0.2(@types/react@19.1.2)(react@19.1.0))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@refinedev/core': 4.57.9(@tanstack/react-query@4.36.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
