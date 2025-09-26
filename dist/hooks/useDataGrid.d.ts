@@ -91,7 +91,7 @@ export type UseDataGridProps<TQueryFnData, TError extends HttpError, TSearchVari
     onSearch?: (data: TSearchVariables) => CrudFilters | Promise<CrudFilters>;
     pagination?: Prettify<Omit<Pagination, "pageSize"> & {
         /**
-         * Initial number of items per page
+         * Number of items per page
          * @default 25
          */
         pageSize?: number;
@@ -122,7 +122,11 @@ export type UseDataGridProps<TQueryFnData, TError extends HttpError, TSearchVari
     createNewRow?: () => Promise<Partial<TData>>;
     schema?: ResourceSchema<TData>;
 };
-export type UseDataGridReturnType<TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TSearchVariables = unknown> = useTableReturnTypeCore<TData, TError> & {
+export type UseDataGridReturnType<TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TSearchVariables = unknown> = Omit<useTableReturnTypeCore<TData, TError>, 'tableQueryResult' | 'current' | 'setCurrent' | 'sorter' | 'setSorter'> & {
+    query: any;
+    result: any;
+    currentPage: number;
+    setCurrentPage: (page: number) => void;
     dataGridProps: DataGridPropsType;
     search: (value: TSearchVariables) => Promise<void>;
     rowSelection: RowSelectionState;
@@ -160,5 +164,5 @@ export type UseDataGridReturnType<TData extends BaseRecord = BaseRecord, TError 
  * @typeParam TData - Result data returned by the `select` function. Extends {@link https://refine.dev/docs/api-reference/core/interfaceReferences#baserecord `BaseRecord`}. Defaults to `TQueryFnData`
  *
  */
-export declare function useDataGrid<TQueryFnData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TSearchVariables = unknown, TData extends BaseRecord = TQueryFnData>({ onSearch: onSearchProp, initialCurrent, initialPageSize, pagination, hasPagination, initialSorter, permanentSorter, defaultSetFilterBehavior, initialFilter, permanentFilter, filters: filtersFromProp, sorters: sortersFromProp, syncWithLocation: syncWithLocationProp, resource: resourceFromProp, successNotification, errorNotification, queryOptions, liveMode: liveModeFromProp, onLiveEvent, liveParams, meta, metaData, dataProviderName, overtimeOptions, editable, selectable, rowSelection: externalRowSelection, onRowSelectionChange, enableRowSelection, updateMutationOptions, deleteMutationOptions, schema, }?: UseDataGridProps<TQueryFnData, TError, TSearchVariables, TData>): UseDataGridReturnType<TData, TError, TSearchVariables>;
+export declare function useDataGrid<TQueryFnData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TSearchVariables = unknown, TData extends BaseRecord = TQueryFnData>({ onSearch: onSearchProp, pagination, filters: filtersFromProp, sorters: sortersFromProp, syncWithLocation: syncWithLocationProp, resource: resourceFromProp, successNotification, errorNotification, queryOptions, liveMode: liveModeFromProp, onLiveEvent, liveParams, meta, dataProviderName, overtimeOptions, editable, selectable, rowSelection: externalRowSelection, onRowSelectionChange, enableRowSelection, updateMutationOptions, deleteMutationOptions, schema, }?: UseDataGridProps<TQueryFnData, TError, TSearchVariables, TData>): UseDataGridReturnType<TData, TError, TSearchVariables>;
 export {};

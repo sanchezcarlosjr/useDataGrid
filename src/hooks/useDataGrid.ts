@@ -1,7 +1,6 @@
 import {
   useUpdate,
   useLiveMode,
-  pickNotDeprecated,
   useTable as useTableCore,
   type BaseRecord,
   type CrudFilters,
@@ -261,7 +260,7 @@ export type UseDataGridProps<
   pagination?: Prettify<
     Omit<Pagination, "pageSize"> & {
       /**
-       * Initial number of items per page
+       * Number of items per page
        * @default 25
        */
       pageSize?: number;
@@ -307,7 +306,11 @@ export type UseDataGridReturnType<
   TData extends BaseRecord = BaseRecord,
   TError extends HttpError = HttpError,
   TSearchVariables = unknown,
-> = useTableReturnTypeCore<TData, TError> & {
+> = Omit<useTableReturnTypeCore<TData, TError>, 'tableQueryResult' | 'current' | 'setCurrent' | 'sorter' | 'setSorter'> & {
+  query: any;
+  result: any;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
   dataGridProps: DataGridPropsType;
   search: (value: TSearchVariables) => Promise<void>;
   rowSelection: RowSelectionState;
@@ -352,15 +355,7 @@ export function useDataGrid<
   TData extends BaseRecord = TQueryFnData,
 >({
   onSearch: onSearchProp,
-  initialCurrent,
-  initialPageSize = 25,
   pagination,
-  hasPagination = true,
-  initialSorter,
-  permanentSorter,
-  defaultSetFilterBehavior = "replace",
-  initialFilter,
-  permanentFilter,
   filters: filtersFromProp,
   sorters: sortersFromProp,
   syncWithLocation: syncWithLocationProp,
@@ -372,7 +367,6 @@ export function useDataGrid<
   onLiveEvent,
   liveParams,
   meta,
-  metaData,
   dataProviderName,
   overtimeOptions,
   editable = false,
@@ -396,34 +390,24 @@ export function useDataGrid<
   const { identifier } = useResourceParams({ resource: resourceFromProp });
 
   const {
-    tableQueryResult,
     tableQuery,
-    current,
-    setCurrent,
+    result,
+    currentPage,
+    setCurrentPage,
     pageSize,
     setPageSize,
     filters,
     setFilters,
     sorters,
     setSorters,
-    sorter,
-    setSorter,
     pageCount,
     createLinkForSyncWithLocation,
     overtime,
   } = useTableCore<TQueryFnData, TError, TData>({
-    permanentSorter,
-    permanentFilter,
-    initialCurrent,
-    initialPageSize,
     pagination,
-    hasPagination,
-    initialSorter,
-    initialFilter,
     filters: filtersFromProp,
     sorters: sortersFromProp,
     syncWithLocation: syncWithLocationProp,
-    defaultSetFilterBehavior,
     resource: resourceFromProp,
     successNotification,
     errorNotification,
@@ -431,8 +415,7 @@ export function useDataGrid<
     liveMode: liveModeFromProp,
     onLiveEvent,
     liveParams,
-    meta: pickNotDeprecated(meta, metaData),
-    metaData: pickNotDeprecated(meta, metaData),
+    meta,
     dataProviderName,
     overtimeOptions,
   });
@@ -462,61 +445,58 @@ export function useDataGrid<
     }
   }, [rowSelection, onRowSelectionChange]);
 
-  const { data, isFetched, isLoading } = tableQueryResult;
+  const { isFetched, isLoading } = tableQuery;
 
   // Use useMemo for rows instead of useState to maintain stable references
   const rows = useMemo(() => {
-    if (!data?.data) return [];
-    
+    if (!result?.data) return [];
+
     // Apply transform from schema if available
     if (schema?.operations?.list?.transform) {
       // Since we can't use async in useMemo, handle synchronously
       try {
-        const transformResult = schema.operations.list.transform(data.data as TData[]);
+        const transformResult = schema.operations.list.transform(result.data as TData[]);
         // Handle both synchronous results and resolved promises
         if (transformResult instanceof Promise) {
           // For promises, we'll need to handle them outside useMemo
           // Just return the original data for now
-          return data.data as GridRowsProp;
+          return result.data as GridRowsProp;
         }
         return transformResult as GridRowsProp;
       } catch (error) {
         console.error("Error transforming rows:", error);
-        return data.data as GridRowsProp;
+        return result.data as GridRowsProp;
       }
     }
-    
-    return data.data as GridRowsProp;
-  }, [data?.data, schema]);
+
+    return result.data as GridRowsProp;
+  }, [result?.data, schema]);
 
   // For async transforms, handle them in an effect
   useEffect(() => {
-    if (data?.data && schema?.operations?.list?.transform) {
-      const transformPromise = Promise.resolve(schema.operations.list.transform(data.data as TData[]));
+    if (result?.data && schema?.operations?.list?.transform) {
+      const transformPromise = Promise.resolve(schema.operations.list.transform(result.data as TData[]));
       // We don't store the result directly since we're using useMemo for rows
       // This is just to handle any side effects from the transform
       transformPromise.catch(error => {
         console.error("Error in async row transformation:", error);
       });
     }
-  }, [data?.data, schema]);
+  }, [result?.data, schema]);
 
   const isServerSideFilteringEnabled =
     (filtersFromProp?.mode || "server") === "server";
   const isServerSideSortingEnabled =
     (sortersFromProp?.mode || "server") === "server";
-  const hasPaginationString = hasPagination === false ? "off" : "server";
   const isPaginationEnabled =
-    (pagination?.mode ?? hasPaginationString) !== "off";
+    (pagination?.mode ?? "server") !== "off";
 
-  const preferredPermanentSorters =
-    pickNotDeprecated(sortersFromProp?.permanent, permanentSorter) ?? [];
-  const preferredPermanentFilters =
-    pickNotDeprecated(filtersFromProp?.permanent, permanentFilter) ?? [];
+  const preferredPermanentSorters = sortersFromProp?.permanent ?? [];
+  const preferredPermanentFilters = filtersFromProp?.permanent ?? [];
 
   const handlePageChange = (page: number) => {
     if (isPaginationEnabled) {
-      setCurrent(page + 1);
+      setCurrentPage(page + 1);
     }
   };
   const handlePageSizeChange = (pageSize: number) => {
@@ -536,7 +516,7 @@ export function useDataGrid<
       setMuiCrudFilters(searchFilters);
       setFilters(searchFilters.filter((f: { value: any }) => f.value !== ""));
       if (isPaginationEnabled) {
-        setCurrent(1);
+        setCurrentPage(1);
       }
     }
   };
@@ -550,7 +530,7 @@ export function useDataGrid<
       return {
         paginationMode: "server" as const,
         paginationModel: {
-          page: current - 1,
+          page: currentPage - 1,
           pageSize,
         },
         onPaginationModelChange: (model) => {
@@ -1059,12 +1039,12 @@ export function useDataGrid<
         setMuiCrudFilters(crudFilters);
         setFilters(crudFilters.filter((f: { value: any }) => f.value !== ""));
         if (isPaginationEnabled) {
-          setCurrent(1);
+          setCurrentPage(1);
         }
       },
       filterDebounceDelay
     ),
-    [setMuiCrudFilters, setFilters, isPaginationEnabled, setCurrent, filterDebounceDelay]
+    [setMuiCrudFilters, setFilters, isPaginationEnabled, setCurrentPage, filterDebounceDelay]
   );
   
   // Row modes model change handler
@@ -1081,7 +1061,7 @@ export function useDataGrid<
     disableRowSelectionOnClick: !selectable,
     rows: rows,
     loading: liveMode === "auto" ? isLoading : !isFetched,
-    rowCount: data?.total || 0,
+    rowCount: result?.total || 0,
     ...dataGridPaginationValues(),
     sortingMode: isServerSideSortingEnabled ? "server" : "client",
     sortModel: transformCrudSortingToSortModel(
@@ -1110,7 +1090,7 @@ export function useDataGrid<
     liveMode,
     isLoading,
     isFetched,
-    data?.total,
+    result?.total,
     dataGridPaginationValues,
     isServerSideSortingEnabled,
     sorters,
@@ -1133,18 +1113,17 @@ export function useDataGrid<
   ]) as DataGridPropsType;
 
   return {
-    tableQueryResult,
+    query: tableQuery,
+    result,
     tableQuery,
     dataGridProps,
-    current,
-    setCurrent,
+    currentPage,
+    setCurrentPage,
     pageSize,
     setPageSize,
     pageCount,
     sorters,
     setSorters,
-    sorter,
-    setSorter,
     filters,
     setFilters,
     search,

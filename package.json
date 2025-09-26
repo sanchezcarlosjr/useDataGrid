@@ -41,10 +41,11 @@
   ],
   "dependencies": {
     "@mui/x-data-grid": "^7.28.3",
-    "@refinedev/core": "^4.57.9",
+    "@refinedev/core": "^5.0.0",
     "@refinedev/mui-x-data-grid": "github:sanchezcarlosjr/useDataGrid",
     "@types/lodash": "^4.17.16",
     "lodash": "^4.17.21",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "@tanstack/react-query": "^5.0.0"
   }
 }
